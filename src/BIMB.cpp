@@ -1,6 +1,9 @@
 #include "BIMB.h"
+#include "brainParts/Neuron.cpp"
 
 BIMB::BIMB() {
+    Neuron neuron = Neuron();
+    neuron.printHello();
 
 }
 

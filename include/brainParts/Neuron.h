@@ -1,21 +1,21 @@
 #pragma once
+#include <cstdio>
 
-#include "brainParts/Neuron.h"
 /**
  * This is a dummy class to demonstrate features of the boiler plate.
  */
-class BIMB {
+class Neuron {
 	public:
 
   /**
    * Default constructor for Dummy (does nothing).
    */
-  BIMB();
+  Neuron();
   /**
    * Returns a bool.
    * @return Always True.
    */
-  bool doSomething();
+  bool printHello();
 };
 
 
@@ -23,7 +23,7 @@ class BIMB {
 #include "doctest.h"
 TEST_CASE("we can have tests in headers if we want")
 {
-    BIMB d;
-    CHECK(d.doSomething() == true);
+    Neuron d;
+    CHECK(d.printHello() == true);
 }
 #endif
