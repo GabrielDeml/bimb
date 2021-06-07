@@ -31,10 +31,10 @@ This is a boiler plate for C++ projects. What you get:
 ├── app
 │   └── main.cpp
 ├── include
-│   ├── example.h
+│   ├── BIMB.h
 │   └── exampleConfig.h.in
 ├── src
-│   └── example.cpp
+│   └── BIMB.cpp
 └── tests
     ├── dummy.cpp
     └── main.cpp

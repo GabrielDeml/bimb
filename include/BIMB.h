@@ -3,13 +3,13 @@
 /**
  * This is a dummy class to demonstrate features of the boiler plate.
  */
-class Dummy {
+class BIMB {
 	public:
 
   /**
    * Default constructor for Dummy (does nothing).
    */
-  Dummy();
+  BIMB();
   /**
    * Returns a bool.
    * @return Always True.
@@ -22,7 +22,7 @@ class Dummy {
 #include "doctest.h"
 TEST_CASE("we can have tests in headers if we want")
 {
-    Dummy d;
+    BIMB d;
     CHECK(d.doSomething() == true);
 }
 #endif
