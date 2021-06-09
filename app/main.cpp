@@ -18,5 +18,5 @@
  */
 int main() {
   BIMB bimb = BIMB();
-  return bimb.doSomething() ? 0 : -1;
+  return bimb.main() ? 0 : -1;
 }

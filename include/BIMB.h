@@ -11,11 +11,7 @@ class BIMB {
    * Default constructor for Dummy (does nothing).
    */
   BIMB();
-  /**
-   * Returns a bool.
-   * @return Always True.
-   */
-  bool doSomething();
+  int main();
 };
 
 
@@ -23,7 +19,7 @@ class BIMB {
 #include "doctest.h"
 TEST_CASE("we can have tests in headers if we want")
 {
-    BIMB d;
-    CHECK(d.doSomething() == true);
+//    BIMB d;
+//    CHECK(d.doSomething() == true);
 }
 #endif

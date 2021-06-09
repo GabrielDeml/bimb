@@ -39,6 +39,8 @@ find_lto(CXX)
 # --------------------------------------------------------------------------------
 set(SOURCES          # All .cpp files in src/
     src/BIMB.cpp
+    src/brainParts/Brain.cpp
+    src/brainParts/Neuron.cpp
 )
 set(TESTFILES        # All .cpp files in tests/
     tests/main.cpp

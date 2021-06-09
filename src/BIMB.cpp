@@ -1,24 +1,21 @@
 #include "BIMB.h"
-#include "brainParts/Neuron.cpp"
+#include "brainParts/Brain.h"
+#include "brainParts/Neuron.h"
 
 BIMB::BIMB() {
-    Neuron neuron = Neuron();
-    neuron.printHello();
-
+  Neuron neuron = Neuron();
+  neuron.printHello();
 }
 
-bool BIMB::doSomething() {
-    // Do silly things, using some C++17 features to enforce C++17 builds only.
-    constexpr int digits[2] = {0, 1};
-    auto [zero, one] = digits;
-    return zero + one;
+int BIMB::main() {
+  Brain brain = Brain();
+  brain.Hello();
+  return 0;
 }
-
 
 #ifdef ENABLE_DOCTEST_IN_LIBRARY
 #include "doctest.h"
-TEST_CASE("we can have tests written here, to test impl. details")
-{
-    CHECK(true);
+TEST_CASE("we can have tests written here, to test impl. details") {
+  CHECK(true);
 }
 #endif
