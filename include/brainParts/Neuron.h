@@ -2,7 +2,7 @@
 #include <cstdio>
 
 /**
- * This is a dummy class to demonstrate features of the boiler plate.
+ * Neuron for the brain
  */
 class Neuron {
 	public:
