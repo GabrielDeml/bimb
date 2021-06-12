@@ -1,5 +1,4 @@
 #include "brainParts/Neuron.h"
-
 Neuron::Neuron() {
 
 }
