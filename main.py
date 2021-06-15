@@ -1,5 +1,6 @@
 # from brain import Brain
 import random
+import copy
 class Being:
     weight = 0;
     bias = 0;
@@ -18,20 +19,20 @@ goal = 1
 
 if __name__ == "__main__":
     print("Welcome to big inteligent machine brain")
-    # random.seed(1)
+    random.seed(1)
 
     beings = []
     # This is a super simple implementation of the brain I just want to prove that is some what works
 
     # Generate beings
-    for i in range(0, 100):
+    for i in range(0, 10000):
         beings.append(Being())
 
     bestBeing = beings[0]
     bestBeingScore = 100000000000
 
     # For x generations
-    for generation in range(0, 100):
+    for generation in range(0, 10000):
         # First mutate everything 
         for b in beings:
             b.mutate()
@@ -41,6 +42,9 @@ if __name__ == "__main__":
             if(tmpScore < bestBeingScore):
                 bestBeing = b
                 bestBeingScore = tmpScore
+
+        for i in range(0, 10000):
+            beings[i] = copy.deepcopy(bestBeing)
 
     print(bestBeingScore)
                         
