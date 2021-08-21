@@ -6,6 +6,8 @@ import copy
 class Agents:
     number_of_agents = 0
     agents = []
+    top_dog_all_time = 0
+    top_dog_all_time_fitness = 0
 
     def __init__(self, number_of_agents):
         self.number_of_agents = number_of_agents
@@ -13,18 +15,20 @@ class Agents:
             # print("agent: " + str(i))
             self.agents.append(Agent(True))
         self.trainer = Trainer()
-        self.top_dog = self.agents[0]
-        self.top_dog_fitness = 1
 
     def test_agents(self):
-
+        self.top_dog = self.agents[0]
+        self.top_dog_fitness = 0
         for agent in self.agents:
             # print(agent)
             score = self.trainer.test(agent)
             if score > self.top_dog_fitness:
                 self.top_dog = agent
                 self.top_dog_fitness = score
-                print("New top dog: " + str(self.top_dog) + " with fitness: " + str(self.top_dog_fitness) + " and weights and bias" + str(self.top_dog.weights) + " and " + str(self.top_dog.bias))
+                print("New top dog with fitness: " + str(self.top_dog_fitness) + " and weights and bias" + str(self.top_dog.weights) + " and " + str(self.top_dog.bias))
+                if score > self.top_dog_all_time_fitness: 
+                    self.top_dog_all_time = agent
+                    self.top_dog_all_time_fitness = score
 
 
     def agents_breed(self):

@@ -15,7 +15,7 @@ class Trainer:
 			time.sleep(1)
 		state = (0, 0, 0, 0)
 		env.reset()
-		for i in range(1000):
+		for i in range(10000):
 			state, reward, done, info = env.step(agent.get_action(state))
 			reward_out += reward
 			if self.gui:
