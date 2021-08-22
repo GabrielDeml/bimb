@@ -16,17 +16,17 @@ class Trainer:
         state = (0, 0, 0, 0)
         env.reset()
         count = 0
-        for i in range(250):
-            state, reward, done, info = env.step(agent.get_action(state))
-            reward_out += reward
+        for j in range(100):
+            for i in range(200):
+                state, reward, done, info = env.step(agent.get_action(state))
+                reward_out += reward
 
-            if self.gui:
-                env.render()
-            # print("State: " + str(state) + " Reward: " + str(reward) +
-            # 	" Done: " + str(done) + " Info: " + str(info))
-            if done:
-                count = i
-                break
-        # print(str(count) + " steps taken")
-        env.close()
-        return count
+                if self.gui:
+                    env.render()
+                # print("State: " + str(state) + " Reward: " + str(reward) +
+                # 	" Done: " + str(done) + " Info: " + str(info))
+                if done:
+                    break
+            # print(str(count) + " steps taken")
+            env.reset()
+        return reward_out / 100
