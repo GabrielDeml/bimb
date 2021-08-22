@@ -3,7 +3,7 @@ class Agent:
     weights = [0, 0, 0, 0]
     bias = [0, 0, 0, 0]
 
-    def __init__(self, r : bool = False):        
+    def __init__(self, r = False):        
         if r:
             for i in range(len(self.weights)):
                 self.weights[i] = random.uniform(-1, 1)
@@ -16,6 +16,9 @@ class Agent:
         return 1 if out > 0 else 0
     
     def mutate(self):
-        for i in range(len(self.weights)):
-            self.weights[i] += random.uniform(-0.01, 0.01)
-            self.bias[i] += random.uniform(-0.01, 0.01)
+        pram_to_change = random.randint(0, len(self.weights) + len(self.bias) - 1)
+        if pram_to_change < len(self.weights):
+            self.weights[pram_to_change] += random.uniform(-0.1, 0.1)
+        else:
+            # print(str(pram_to_change - len(self.weights)))
+            self.bias[pram_to_change - len(self.weights)] += random.uniform(-0.1, 0.1)

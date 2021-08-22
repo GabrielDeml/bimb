@@ -3,7 +3,7 @@ import time
 
 
 class Trainer:
-	def __init__(self, gui : bool = False):
+	def __init__(self, gui = False):
 		self.gui = gui
 		print("Trainer initialized")
 	
