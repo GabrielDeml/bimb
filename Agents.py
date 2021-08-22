@@ -4,6 +4,8 @@ import copy
 
 
 import multiprocessing
+
+
 class Agents:
     number_of_agents = 0
 
@@ -11,7 +13,7 @@ class Agents:
         self.number_of_agents = number_of_agents
 
         self.trainer = Trainer()
-    
+
     def generate_agents(self):
         agents = []
         for i in range(self.number_of_agents):
@@ -25,7 +27,7 @@ class Agents:
         top_dog = agents[0]
         top_dog_fitness = 0
         # for agent in self.agents:
-        pool = multiprocessing.Pool(processes = 1)
+        pool = multiprocessing.Pool(processes=1)
         agents_scores = pool.map(self.agent_test, agents)
         for i in range(len(agents_scores)):
             if agents_scores[i] > top_dog_fitness:
@@ -36,7 +38,6 @@ class Agents:
                 #     self.top_dog_all_time_bias = self.agents[i].bias
                 #     self.top_dog_all_time_fitness = copy.deepcopy(agents_scores[i])
         return top_dog, top_dog_fitness
-
 
     def agents_breed(self, top_dog):
         agents = []

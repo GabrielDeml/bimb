@@ -14,6 +14,10 @@ if __name__ == '__main__':
         print("Generation: " + str(i))
         print("Top dog " + str(top_dog) + " with fitness " + str(top_dog_fitness) + " weights " + str(top_dog.weights) + " bias " + str(top_dog.bias))
         if top_dog_fitness > top_dog_all_time_fitness:
+            if(top_dog_fitness == 200):
+                print("=================================================================================")
+                print("------------------------------------- hit 200 -----------------------------------")
+                print("=================================================================================")
             top_dog_all_time_fitness = copy.deepcopy(top_dog_fitness)
             top_dog_all_time_weights = copy.deepcopy(top_dog.weights)
             top_dog_all_time_bias = copy.deepcopy(top_dog.bias)
