@@ -7,7 +7,7 @@ top_dog_all_time_bias = []
 
 if __name__ == '__main__':
     print("Running BIMB")
-    agents = Agents(10)
+    agents = Agents(1000)
     for i in range(10000):
         list_of_agents = agents.generate_agents()
         top_dog, top_dog_fitness = agents.test_agents(list_of_agents)

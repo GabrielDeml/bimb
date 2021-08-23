@@ -21,8 +21,8 @@ class Agent:
         pram_to_change = random.randint(
             0, len(self.weights) + len(self.bias) - 1)
         if pram_to_change < len(self.weights):
-            self.weights[pram_to_change] += random.uniform(-0.1, 0.1)
+            self.weights[pram_to_change] += random.uniform(-0.01, 0.01)
         else:
             # print(str(pram_to_change - len(self.weights)))
             self.bias[pram_to_change -
-                      len(self.weights)] += random.uniform(-0.1, 0.1)
+                      len(self.weights)] += random.uniform(-0.01, 0.01)
