@@ -1,8 +1,11 @@
 Things that need to be done:
 * Add summery graphs for each of the metrics
 * Add breading 
-* Wite logs to file
+
 * Do image classification
 * Make a deeper neural network
 * Add gpu support to the deeper neural network
 * Write a readme.md
+
+Things that are done:
+* Wite logs to file

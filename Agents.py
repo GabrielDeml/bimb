@@ -27,7 +27,7 @@ class Agents:
         top_dog = agents[0]
         top_dog_fitness = 0
         # for agent in self.agents:
-        pool = multiprocessing.Pool(processes=8)
+        pool = multiprocessing.Pool(processes=4)
         agents_scores = pool.map(self.agent_test, agents)
         for i in range(len(agents_scores)):
             if agents_scores[i] > top_dog_fitness:
