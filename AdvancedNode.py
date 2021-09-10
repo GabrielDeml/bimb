@@ -9,9 +9,11 @@ class AdvancedLayer:
 	'''
 	varables = []
 	operators = []
+	parent_nodes = []
+	child_nodes = []
 
 
-	def run_on_input(self, data_in):
+	def calculate_output(self, data_in):
 		'''Run layer on input'''
 		output = data_in
 		for i in range(len(self.varables)):
@@ -46,6 +48,25 @@ class AdvancedLayer:
 			else:
 				print("Invalid operator")
 		return output
+
+	def run_node(self, input_data):
+		'''Run layer on input'''
+		calculated_input = self.calculate_output(input_data)
+		output = 0
+		if self.child_nodes is None:
+			return calculated_input
+		else: 
+			for child_node in self.child_nodes:
+				output += child_node.run_node(calculated_input)
+		return output
+
+	def add_parent_node(self, node):
+		'''Add parent node to layer'''
+		self.parent_nodes.append(node)
+	
+	def add_child_node(self, node):
+		'''Add child node to layer'''
+		self.child_nodes.append(node)
 
 	def add_varable(self, varable, operator):
 		'''Add varable to layer'''
