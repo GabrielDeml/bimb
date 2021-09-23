@@ -80,7 +80,7 @@ class AdvancedLayer:
             self.add_varable(random.uniform(-1, 1),
                              random.choice(self.operators))
         if random.random() < self.self_mutation_rate:
-            i = random.randint(0, len(self.varables)-1)
+            i = random.randint(0, len(self.varables))
             self.varables.remove(i)
 
     def child_mutate(self):
