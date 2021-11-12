@@ -10,8 +10,7 @@ class AdvancedNode:
 
 
     '''
-    possible_operators = ['+', '-', '*', '/',
-                          '^', '%', 's', 'c', 't', 'l', 'e']
+    possible_operators = ['+', '-', '*', '/']
     varables = []
     operators = []
     parent_nodes = []
@@ -43,22 +42,22 @@ class AdvancedNode:
                         output *= varable
                     elif operator == '/':
                         output /= varable
-                    elif operator == '^':
-                        output **= varable
-                    elif operator == '%':
-                        output %= varable
-                    elif operator == 's':
-                        output = math.sqrt(output)
-                    elif operator == 's':
-                        output = math.sin(output)
-                    elif operator == 'c':
-                        output = math.cos(output)
-                    elif operator == 't':
-                        output = math.tan(output)
-                    elif operator == 'l':
-                        output = math.log(output)
-                    elif operator == 'e':
-                        output = math.exp(output)
+                    # elif operator == '^':
+                    #     output **= varable
+                    # elif operator == '%':
+                    #     output %= varable
+                    # elif operator == 's':
+                    #     output = math.sqrt(output)
+                    # elif operator == 's':
+                    #     output = math.sin(output)
+                    # elif operator == 'c':
+                    #     output = math.cos(output)
+                    # elif operator == 't':
+                    #     output = math.tan(output)
+                    # elif operator == 'l':
+                    #     output = math.log(output)
+                    # elif operator == 'e':
+                    #     output = math.exp(output)
                     else:
                         print("Invalid operator")
                 except:
