@@ -19,15 +19,15 @@ if __name__ == "__main__":
             tmp_node.mutate()
             output = tmp_node.run_node(2)
             output = abs(output - 4)
-            print("Score: " + str(output))
+            # print("Score: " + str(output))
             if output <= bestScore:
                 bestScore = output
                 bestBeing = copy.deepcopy(tmp_node)
-                print(str(output))
-            rootNode = bestBeing
+                # print(str(output))
             if output <= overallBestScore:
                 overallBestScore = output
                 overallBestBeing = copy.deepcopy(tmp_node)
-                print(str(output))
-            print("Best score: " + str(bestScore))
+                # print(str(output))
+        rootNode = bestBeing
+        print("Best score: " + str(bestScore))
     print("Overall best score: " + str(overallBestScore))

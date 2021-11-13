@@ -42,22 +42,6 @@ class AdvancedNode:
                         output *= varable
                     elif operator == '/':
                         output /= varable
-                    # elif operator == '^':
-                    #     output **= varable
-                    # elif operator == '%':
-                    #     output %= varable
-                    # elif operator == 's':
-                    #     output = math.sqrt(output)
-                    # elif operator == 's':
-                    #     output = math.sin(output)
-                    # elif operator == 'c':
-                    #     output = math.cos(output)
-                    # elif operator == 't':
-                    #     output = math.tan(output)
-                    # elif operator == 'l':
-                    #     output = math.log(output)
-                    # elif operator == 'e':
-                    #     output = math.exp(output)
                     else:
                         print("Invalid operator")
                 except:
@@ -98,8 +82,9 @@ class AdvancedNode:
         if random.random() < self.child_mutation_rate:
             self.add_child_node(AdvancedNode())
 
-    def mutate(self):
-        self.self_mutate()
+    def mutate(self, depth=0, max_depth=5):
+        if depth < max_depth:
+            self.self_mutate()
         self.child_mutate()
         if self.child_nodes is not None:
             for child_node in self.child_nodes:
