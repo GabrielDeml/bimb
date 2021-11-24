@@ -18,7 +18,7 @@ class AdvancedNode:
     child_mutation_rate = 0.1
     self_mutation_rate = 0.1
 
-    def __init__(self, children=None, varables=None, operators=None, child_mutation_rate=0.1, self_mutation_rate=0.1):
+    def __init__(self, children=[], varables=None, operators=None, child_mutation_rate=0.1, self_mutation_rate=0.1):
         '''Initialize node'''
         self.child_nodes = children
         self.varables = varables
@@ -74,13 +74,21 @@ class AdvancedNode:
                     self.varables.remove(i)
                 except:
                     pass
-        
+
         self.child_mutate()
 
     def child_mutate(self):
         '''Mutate child nodes'''
         if random.random() < self.child_mutation_rate:
-            self.add_child_node(AdvancedNode())
+            if random.random() < 0.5:
+                self.add_child_node(AdvancedNode())
+            else:
+                if self.child_nodes is not None and (len(self.child_nodes) > 0):
+                    i = random.randint(0, len(self.child_nodes))
+                    try:
+                        self.child_nodes.pop(i)
+                    except:
+                        self.child_nodes = None
 
     def mutate(self, depth=0, max_depth=5):
         if depth < max_depth:
