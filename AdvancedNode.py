@@ -77,10 +77,10 @@ class AdvancedNode:
 
         self.child_mutate()
 
-    def child_mutate(self):
+    def child_mutate(self, depth=0, max_depth=5):
         '''Mutate child nodes'''
         if random.random() < self.child_mutation_rate:
-            if random.random() < 0.5:
+            if random.random() < 0.5 and depth < max_depth:
                 self.add_child_node(AdvancedNode())
             else:
                 if self.child_nodes is not None and (len(self.child_nodes) > 0):
@@ -91,12 +91,13 @@ class AdvancedNode:
                         self.child_nodes = None
 
     def mutate(self, depth=0, max_depth=5):
-        if depth < max_depth:
-            self.self_mutate()
-        self.child_mutate()
-        if self.child_nodes is not None:
+        # if depth < max_depth:
+        self.self_mutate()
+        self.child_mutate(depth, max_depth)
+        # If self.child_nodes is not empty, mutate each child node
+        if self.child_nodes is not None and len(self.child_nodes) > 0:
             for child_node in self.child_nodes:
-                child_node.mutate()
+                child_node.mutate(depth + 1, max_depth)
 
     def add_child_node(self, node):
         '''Add child node to layer'''

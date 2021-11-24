@@ -1,6 +1,7 @@
 import copy
 from random import Random, randint
 from AdvancedNode import AdvancedNode as AN
+import gc
 
 if __name__ == "__main__":
     # Create root node
@@ -26,10 +27,12 @@ if __name__ == "__main__":
                 bestScore = output
                 bestBeing = copy.deepcopy(tmp_node)
                 # print(str(output))
-            if output <= overallBestScore:
-                overallBestScore = output
-                overallBestBeing = copy.deepcopy(tmp_node)
-                # print(str(output))
+                if output <= overallBestScore:
+                    overallBestScore = output
+                    overallBestBeing = copy.deepcopy(tmp_node)
+            else: 
+                del tmp_node
+                gc.collect()
         rootNode = bestBeing
         print("Best score: " + str(bestScore))
     print("Overall best score: " + str(overallBestScore))
