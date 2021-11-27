@@ -101,10 +101,12 @@ class AdvancedNode:
 
     def add_child_node(self, node):
         '''Add child node to layer'''
+        # TODO: Make child node init with varables and operators
         if self.child_nodes is None:
             self.child_nodes = [node]
         else:
             self.child_nodes.append(node)
+        
 
     def add_varable(self, varable, operator):
         '''Add varable to layer'''

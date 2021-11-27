@@ -22,6 +22,7 @@ if __name__ == "__main__":
             tmp_node = copy.deepcopy(rootNode)
             tmp_node.mutate()
             output = tmp_node.run_node(rand)
+            #TODO: Run multiple tests
             output = abs(output - (rand ** 2))
             # print("Score: " + str(output))
             if output <= bestScore:
