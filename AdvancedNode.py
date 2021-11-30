@@ -1,5 +1,6 @@
 import random
 import math
+import numpy as np
 
 
 class AdvancedNode:
@@ -33,17 +34,30 @@ class AdvancedNode:
             for i in range(len(self.varables)):
                 varable = self.varables[i]
                 operator = self.operators[i]
+                # if type is np.ndarray:
+                
                 try:
-                    if operator == '+':
-                        output += varable
-                    elif operator == '-':
-                        output -= varable
-                    elif operator == '*':
-                        output *= varable
-                    elif operator == '/':
-                        output /= varable
+                    # if data_in is np.ndarray:
+                    if type(data_in) is np.ndarray:
+                        if operator == '+':
+                            output = np.add(output, varable)
+                        elif operator == '-':
+                            output = np.subtract(output, varable)
+                        elif operator == '*':
+                            output = np.multiply(output, varable)
+                        elif operator == '/':
+                            output = np.divide(output, varable)
                     else:
-                        print("Invalid operator")
+                        if operator == '+':
+                            output += varable
+                        elif operator == '-':
+                            output -= varable
+                        elif operator == '*':
+                            output *= varable
+                        elif operator == '/':
+                            output /= varable
+                        else:
+                            print("Invalid operator")
                 except:
                     pass
             return output
