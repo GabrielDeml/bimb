@@ -9,6 +9,7 @@ if __name__ == "__main__":
     # For each generation
     overallBestBeing = AN()
     overallBestScore = float("inf")
+    testNumber = 0
     for i in range(100):
         # For each being in the generation
         # best score starts as infinity
@@ -30,11 +31,13 @@ if __name__ == "__main__":
                 bestBeing = copy.deepcopy(tmp_node)
                 # print(str(output))
             if output <= overallBestScore:
+                testNumber = rand
                 overallBestScore = output
                 overallBestBeing = copy.deepcopy(tmp_node)
         rootNode = bestBeing
         print("Best score: " + str(bestScore))
     print("Overall best score: " + str(overallBestScore))
+    print("Overall best being test number: " + str(testNumber))
     print("Overall best being: " + str(overallBestBeing))
-    print("Variables: " + str(overallBestBeing.variables))
-    print("Operators: " + str(overallBestBeing.operators))
+    print("Variables: " + str(overallBestBeing.getVariables()))
+    print("Operators: " + str(overallBestBeing.getOperators()))

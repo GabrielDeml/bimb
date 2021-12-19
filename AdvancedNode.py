@@ -130,3 +130,11 @@ class AdvancedNode:
         else:
             self.varables.append(varable)
             self.operators.append(operator)
+    
+    def getVariables(self):
+        '''Return variables'''
+        return self.varables
+
+    def getOperators(self):
+        '''Return operators'''
+        return self.operators
