@@ -138,3 +138,12 @@ class AdvancedNode:
     def getOperators(self):
         '''Return operators'''
         return self.operators
+
+    def printOperators(self):
+        print(str(self.operators))
+        if self.child_nodes is None: 
+            for child in self.child_nodes:
+                child.printOperators
+        else:
+            print("No child nodes")
+
