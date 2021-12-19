@@ -79,7 +79,7 @@ class AdvancedNode:
     def self_mutate(self):
         '''Mutate self'''
         if random.random() < self.self_mutation_rate:
-            self.add_varable(random.uniform(-1, 1),
+            self.add_varable(random.uniform(-100, 100),
                              random.choice(self.possible_operators))
         if random.random() < self.self_mutation_rate:
             if self.varables is not None:
