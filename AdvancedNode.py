@@ -119,6 +119,7 @@ class AdvancedNode:
         if self.child_nodes is None:
             self.child_nodes = [node]
         else:
+            print("Appending child node")
             self.child_nodes.append(node)
         
 
@@ -141,9 +142,9 @@ class AdvancedNode:
 
     def printOperators(self):
         print(str(self.operators))
-        if self.child_nodes is None: 
-            for child in self.child_nodes:
-                child.printOperators
-        else:
+        try: 
+            for child_from_array in self.child_nodes:
+                child_from_array.printOperators
+        except:
             print("No child nodes")
 

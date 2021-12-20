@@ -41,6 +41,8 @@ if __name__ == "__main__":
                 testNumber = rand
                 overallBestScore = output
                 overallBestBeing = copy.deepcopy(tmp_node)
+            print("=================================")
+            tmp_node.printOperators()
         rootNode = bestBeing
         print("Best score: " + str(bestScore))
         print("Overall best score: " + str(overallBestScore))
