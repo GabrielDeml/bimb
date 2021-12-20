@@ -95,7 +95,8 @@ class AdvancedNode:
         '''Mutate child nodes'''
         if random.random() < self.child_mutation_rate:
             if random.random() < 0.5 and depth < max_depth:
-                self.add_child_node(AdvancedNode())
+                new_child_node = AdvancedNode()
+                self.add_child_node(new_child_node)
             else:
                 if self.child_nodes is not None and (len(self.child_nodes) > 0):
                     i = random.randint(0, len(self.child_nodes))
@@ -121,6 +122,7 @@ class AdvancedNode:
         else:
             print("Appending child node")
             self.child_nodes.append(node)
+            print("Child nodes: " + str(self.child_nodes))
         
 
     def add_varable(self, varable, operator):
@@ -140,11 +142,11 @@ class AdvancedNode:
         '''Return operators'''
         return self.operators
 
-    def printOperators(self):
-        print(str(self.operators))
+    def printOperators(self, space = ""):
+        print(space + str(self.operators))
         try: 
             for child_from_array in self.child_nodes:
-                child_from_array.printOperators
+                child_from_array.printOperators(space + "  ")
         except:
             print("No child nodes")
 

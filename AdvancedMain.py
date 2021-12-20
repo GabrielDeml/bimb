@@ -17,7 +17,7 @@ if __name__ == "__main__":
         testArray.append(randint(1, 100))
 
 
-    for i in range(10000):
+    for i in range(100):
         # For each being in the generation
         # best score starts as infinity
         bestBeing = AN()
@@ -44,10 +44,16 @@ if __name__ == "__main__":
             print("=================================")
             tmp_node.printOperators()
         rootNode = bestBeing
-        print("Best score: " + str(bestScore))
-        print("Overall best score: " + str(overallBestScore))
-        print("Overall best being test number: " + str(testNumber))
-        print("Overall best being: " + str(overallBestBeing))
-        print("Variables: " + str(overallBestBeing.getVariables()))
-        # print("Operators: " + str(overallBestBeing.getOperators()))
-        overallBestBeing.printOperators()
+    print("Best score: " + str(bestScore))
+    print("Overall best score: " + str(overallBestScore))
+    print("Overall best being test number: " + str(testNumber))
+    print("Overall best being: " + str(overallBestBeing))
+    print("=========================== 51 ===========================")
+    try:
+        print("Number of child nodes on root: " + str(len(overallBestBeing.child_nodes)))
+    except:
+        pass
+    print("Overall best being children: " + str(overallBestBeing.printOperators()))
+    print("=========================== 53 ===========================")
+    print("Variables: " + str(overallBestBeing.getVariables()))
+    # print("Operators: " + str(overallBestBeing.getOperators()))
