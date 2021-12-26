@@ -122,6 +122,7 @@ class AdvancedNode:
         else:
             print("Appending child node")
             self.child_nodes.append(node)
+            
             print("Child nodes: " + str(self.child_nodes))
         
 
