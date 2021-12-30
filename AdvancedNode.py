@@ -35,7 +35,7 @@ class AdvancedNode:
                 varable = self.varables[i]
                 operator = self.operators[i]
                 # if type is np.ndarray:
-                
+
                 try:
                     # if data_in is np.ndarray:
                     if type(data_in) is np.ndarray:
@@ -89,26 +89,30 @@ class AdvancedNode:
                 except:
                     pass
 
-        self.child_mutate()
+        self.add_or_remove_children()
 
-    def child_mutate(self, depth=0, max_depth=5):
+    def add_or_remove_children(self, depth=0, max_depth=5, max_children=5):
+        print("Depth: " + str(depth))
         '''Mutate child nodes'''
         if random.random() < self.child_mutation_rate:
-            if random.random() < 0.5 and depth < max_depth:
+            random_number = random.random()
+            if random_number < 0.5 and depth < max_depth and self.child_nodes is not None and max_children > len(self.child_nodes):
                 new_child_node = AdvancedNode()
                 self.add_child_node(new_child_node)
-            else:
+            elif(random_number > 0.5):
                 if self.child_nodes is not None and (len(self.child_nodes) > 0):
                     i = random.randint(0, len(self.child_nodes))
                     try:
                         self.child_nodes.pop(i)
                     except:
                         self.child_nodes = None
+            else:
+                print("No change to child")
 
-    def mutate(self, depth=0, max_depth=5):
+    def mutate(self, depth=0, max_depth=5, max_children=5):
         # if depth < max_depth:
         self.self_mutate()
-        self.child_mutate(depth, max_depth)
+        self.add_or_remove_children(depth + 1, max_depth, max_children)
         # If self.child_nodes is not empty, mutate each child node
         if self.child_nodes is not None and len(self.child_nodes) > 0:
             for child_node in self.child_nodes:
@@ -122,9 +126,8 @@ class AdvancedNode:
         else:
             print("Appending child node")
             self.child_nodes.append(node)
-            
+
             print("Child nodes: " + str(self.child_nodes))
-        
 
     def add_varable(self, varable, operator):
         '''Add varable to layer'''
@@ -134,7 +137,7 @@ class AdvancedNode:
         else:
             self.varables.append(varable)
             self.operators.append(operator)
-    
+
     def getVariables(self):
         '''Return variables'''
         return self.varables
@@ -143,11 +146,10 @@ class AdvancedNode:
         '''Return operators'''
         return self.operators
 
-    def printOperators(self, space = ""):
+    def printOperators(self, space=""):
         print(space + str(self.operators))
-        try: 
+        try:
             for child_from_array in self.child_nodes:
                 child_from_array.printOperators(space + "  ")
         except:
             print("No child nodes")
-
