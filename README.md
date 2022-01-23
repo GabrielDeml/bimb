@@ -1,3 +1,3 @@
 # Big intelligent machine brain (BIMB) 
 
-An experiment to use a genetic algorithm to evolve an vurutal brain
+An experiment to make a genetic algorithm which is able evolve a virtual brain
